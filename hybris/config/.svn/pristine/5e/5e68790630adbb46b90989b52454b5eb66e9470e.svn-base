@@ -1,0 +1,40 @@
+<hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
+  <extensions>
+    <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
+    <extension name='mcc' />
+    <extension name='backoffice' />
+    <extension name='commercesearchbackoffice' />
+    <extension name='b2bcommercebackoffice' />
+    <extension name='commerceservicesbackoffice' />
+    <extension name='solrfacetsearchbackoffice' />
+    <extension name='b2badmincockpit' />
+    <extension name='btgcockpit' />
+	
+	<extension name='etourtravelb2bcockpits' />
+    <extension name='etourtravelb2binitialdata' />
+    <extension name='etourtravelb2bfulfilmentprocess' />
+    <extension name='etourtravelb2bstorefront' />
+    <extension name='etourtravelb2bfacades' />
+    <extension name='etourtravelb2bcore' />
+    <extension name='etourtravelb2btest' />
+  
+    <extension name='yaddon' />
+	 <extension name='liveeditaddon' />
+    <extension name='ycommercewebservices' />
+    <extension name='powertoolsstore' />
+    <extension name='solrserver' />
+    <extension name='acceleratorwebservicesaddon' />
+    <extension name='b2bacceleratoraddon' />
+    <extension name='commerceorgaddon' />
+    <extension name='b2bpunchoutaddon' />
+    <extension name='secureportaladdon' />
+    <extension name='savedorderformsoccaddon' />
+    <extension name='b2boccaddon' />
+    <extension name='accountsummaryaddon' />
+    <extension name='assistedservicestorefront' />
+    <extension name='captchaaddon' />
+    <extension name='customerticketingaddon' />
+    <extension name='customersupportbackoffice' />
+  <!--   <extension name='yb2bacceleratorstorefront' /> -->
+  </extensions>
+</hybrisconfig>
