@@ -1,0 +1,11 @@
+#
+# Import the BaseStore
+#
+
+# Language
+$lang=en
+$storeUid=etourtravelb2b
+
+# Create Base Store
+UPDATE BaseStore;uid[unique=true];name[lang=$lang]
+;$storeUid;"etourtravel B2BStore"

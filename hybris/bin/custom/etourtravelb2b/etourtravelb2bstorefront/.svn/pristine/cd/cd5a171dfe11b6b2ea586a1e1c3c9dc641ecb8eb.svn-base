@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<groups xmlns="http://www.isdc.ro/wro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+   <group name="addons_responsive">
+      <js>/_ui/addons/assistedservicestorefront/responsive/common/js/assistedservicestorefront.js</js>
+      <css>/_ui/addons/assistedservicestorefront/responsive/common/css/assistedservicestorefront.css</css>
+      <js>/_ui/addons/secureportaladdon/responsive/common/js/secureportaladdon.js</js>
+      <js>/_ui/addons/b2bpunchoutaddon/responsive/common/js/acc.punchout.js</js>
+      <js>/_ui/addons/commerceorgaddon/responsive/common/js/commerceorgnavigation.js</js>
+      <js>/_ui/addons/commerceorgaddon/responsive/common/js/commerceorgaddon.js</js>
+      <js>/_ui/addons/commerceorgaddon/responsive/common/js/jquery.validate.js</js>
+      <js>/_ui/addons/accountsummaryaddon/responsive/common/js/acc.accountsummary.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.checkoutsummary.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.paymentType.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.replenishment.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.orderform.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.quote.js</js>
+      <js>/_ui/addons/b2bacceleratoraddon/responsive/common/js/acc.approval.js</js>
+      <css>/_ui/addons/liveeditaddon/responsive/common/css/liveeditaddon.css</css>
+      <js>/_ui/addons/captchaaddon/responsive/common/js/captchaaddon.js</js>
+   </group>
+   <group name="addons_desktop">
+      <js>/_ui/addons/assistedservicestorefront/responsive/common/js/assistedservicestorefront.js</js>
+      <css>/_ui/addons/assistedservicestorefront/responsive/common/css/assistedservicestorefront.css</css>
+      <css>/_ui/addons/liveeditaddon/desktop/common/css/liveeditaddon.css</css>
+      <js>/_ui/addons/captchaaddon/desktop/common/js/captchaaddon.js</js>
+      <css>/_ui/addons/captchaaddon/desktop/common/css/captchaaddon.css</css>
+   </group>
+   <group name="addons_mobile">
+      <js>/_ui/addons/assistedservicestorefront/responsive/common/js/assistedservicestorefront.js</js>
+      <css>/_ui/addons/assistedservicestorefront/responsive/common/css/assistedservicestorefront.css</css>
+      <css>/_ui/addons/liveeditaddon/mobile/common/css/liveeditaddon.css</css>
+      <js>/_ui/addons/captchaaddon/mobile/common/js/captchaaddon.js</js>
+      <css>/_ui/addons/captchaaddon/mobile/common/css/captchaaddon.css</css>
+   </group>
+</groups>
+

@@ -1,0 +1,25 @@
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=etourtravelProductCatalog
+$productCatalogName=etourtravel Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=en
+
+# Create Categories
+
+UPDATE Category;$catalogVersion;code[unique=true];name[lang=$lang]
+;;1;etourtravel Catalog;
+
+;;100;DOMESTIC;
+;;110;AGRA;
+;;120;GOA;
+;;130;OOTY;
+
+;;200;INTERNATIONAL;
+;;210;EUROPE;
+;;220;MALAYSIA;
+;;230;SINGAPORE;

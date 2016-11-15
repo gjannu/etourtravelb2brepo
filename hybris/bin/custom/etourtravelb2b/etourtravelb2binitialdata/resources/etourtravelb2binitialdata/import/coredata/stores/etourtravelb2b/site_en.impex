@@ -1,0 +1,11 @@
+#
+# Import the CMS Site configuration for the store
+#
+
+# Language
+$lang=en
+$siteUid=etourtravelb2b
+
+# Create CMS Site
+UPDATE CMSSite;uid[unique=true];name[lang=$lang];locale[lang=$lang]
+;$siteUid;"etourtravelb2b Site";en_US	

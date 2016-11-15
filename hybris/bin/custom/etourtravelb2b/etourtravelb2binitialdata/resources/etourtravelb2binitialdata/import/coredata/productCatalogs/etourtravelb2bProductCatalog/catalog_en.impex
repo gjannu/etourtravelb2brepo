@@ -1,0 +1,11 @@
+#
+# Import the Product Catalog and Classification Catalog
+#
+
+# Language
+$lang=en
+$productCatalog=etourtravelb2bProductCatalog
+
+# Create Catalog
+UPDATE Catalog;id[unique=true];name[lang=$lang]
+;$productCatalog;"etourtravelb2b Product Catalog"

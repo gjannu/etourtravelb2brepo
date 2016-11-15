@@ -1,0 +1,33 @@
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=etourtravelb2bProductCatalog
+$productCatalogName=etourtravelb2b Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=source(code, $catalogVersion)[unique=true]
+$categories=target(code, $catalogVersion)[unique=true]
+
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+;1
+;100
+;110
+;120
+;130
+
+;200
+;210
+;220
+;230
+
+# Insert Category Structure
+INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+;100;1
+;200;1
+;110;100
+;120;100
+;130;100
+;210;200
+;220;200
+;230;200

@@ -1,0 +1,48 @@
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=etourtravelb2bProductCatalog
+$productCatalogName=etourtravelb2b Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+$taxGroup=Europe1PriceFactory_PTG(code)[default=jp-vat-full]
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved;$taxGroup
+;0001;110;AGRA;AGRA-PLACE1;pieces;
+;0002;110;AGRA;AGRA-PLACE2;pieces;
+;0003;110;AGRA;AGRA-PLACE3;pieces;
+;0004;120;GOA;GOA-PLACE1;pieces;
+;0005;120;GOA;GOA-PLACE2;pieces;
+;0006;120;GOA;GOA-PLACE3;pieces;
+;0007;130;OOTY;OOTY-PLACE1;pieces;
+;0008;130;OOTY;OOTY-PLACE2;pieces;
+;0009;130;OOTY;OOTY-PLACE3;pieces;
+
+
+
+;0011;210;EUROPE;EUROPE-PLACE1;pieces;
+;0012;210;EUROPE;EUROPE-PLACE2;pieces;
+;0013;210;EUROPE;EUROPE-PLACE3;pieces;
+;0014;220;MALAYSIA;MALAYSIA-PLACE1;pieces;
+;0015;220;MALAYSIA;MALAYSIA-PLACE2;pieces;
+;0016;220;MALAYSIA;MALAYSIA-PLACE3;pieces;
+;0017;230;SINGAPORE;SINGAPORE-PLACE1;pieces;;Etourtravelb2bDaysVariantProduct
+;0018;230;SINGAPORE;SINGAPORE-PLACE2;pieces;;Etourtravelb2bDaysVariantProduct
+;0019;230;SINGAPORE;SINGAPORE-PLACE3;pieces;;Etourtravelb2bDaysVariantProduct
+
+;0031;;ComingSoon;ComingSoon1;pieces;
+;0032;;ComingSoon;ComingSoon2;pieces;
+
+INSERT_UPDATE Etourtravelb2bDaysVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);days(code);unit(code)[default='pieces'];varianttype(code);$approved;$taxGroup
+;ETB0017;;0017;230;4days;pieces;
+;ETG0017;;0017;230;5days;pieces;
+;ETB0018;;0018;230;4days;pieces;
+;ETG0018;;0018;230;5days;pieces;
+;ETB0019;;0019;230;4days;pieces;
+;ETG0019;;0019;230;5days;pieces;
+
+

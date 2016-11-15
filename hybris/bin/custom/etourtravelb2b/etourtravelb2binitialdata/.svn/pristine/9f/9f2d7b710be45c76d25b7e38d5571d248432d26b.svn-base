@@ -1,0 +1,11 @@
+#
+# Import the Content Catalog
+#
+
+# Language
+$lang=en
+$contentCatalog=etourtravelb2bContentCatalog
+
+# Create Content Catalog
+UPDATE ContentCatalog;id[unique=true];name[lang=$lang]
+;$contentCatalog;"etourtravelb2b Content Catalog"

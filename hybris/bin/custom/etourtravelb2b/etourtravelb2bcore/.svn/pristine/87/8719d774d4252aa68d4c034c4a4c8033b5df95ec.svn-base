@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2000-2016 hybris AG
+ All rights reserved.
+
+ This software is the confidential and proprietary information of hybris
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with hybris.
+-->
+
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="items.xsd">
+
+	<collectiontypes>
+		<collectiontype code="GenderList" elementtype="Gender" autocreate="true" generate="true" type="list"/>
+		<collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
+		                type="set"/>
+	</collectiontypes>
+
+
+	<enumtypes>
+		<enumtype generate="true" code="SwatchColorEnum" autocreate="true" dynamic="true">
+			<value code="BLACK"/>
+			<value code="BLUE"/>
+			<value code="BROWN"/>
+			<value code="GREEN"/>
+			<value code="GREY"/>
+			<value code="ORANGE"/>
+			<value code="PINK"/>
+			<value code="PURPLE"/>
+			<value code="RED"/>
+			<value code="SILVER"/>
+			<value code="WHITE"/>
+			<value code="YELLOW"/>
+		</enumtype>
+	</enumtypes>
+
+	<itemtypes>
+
+		<!-- Add your item definitions here -->
+
+
+		<!-- TypeGroups are for structure of this file only -->
+
+		<typegroup name="Apparel">
+			<itemtype code="ApparelProduct" extends="Product"
+			          autocreate="true" generate="true"
+			          jaloclass="com.etourtravelb2b.core.jalo.ApparelProduct">
+				<description>Base apparel product extension that contains additional attributes.</description>
+				<attributes>
+					<attribute qualifier="genders" type="GenderList">
+						<description>List of genders that the ApparelProduct is designed for</description>
+						<modifiers/>
+						<persistence type="property"/>
+					</attribute>
+				</attributes>
+			</itemtype>
+
+			<itemtype code="ApparelStyleVariantProduct" extends="VariantProduct"
+			          autocreate="true" generate="true"
+			          jaloclass="com.etourtravelb2b.core.jalo.ApparelStyleVariantProduct">
+				<description>Apparel style variant type that contains additional attribute describing variant style.
+				</description>
+				<attributes>
+					<attribute qualifier="style" type="localized:java.lang.String"
+					           metatype="VariantAttributeDescriptor">
+						<description>Color/Pattern of the product.</description>
+						<modifiers/>
+						<persistence type="property"/>
+					</attribute>
+
+					<attribute qualifier="swatchColors" type="SwatchColorSet">
+						<description>A normalized color mapping to a standardized front-end navigable name.
+						</description>
+						<modifiers/>
+						<persistence type="property"/>
+					</attribute>
+				</attributes>
+
+			</itemtype>
+
+			<itemtype code="ApparelSizeVariantProduct" extends="ApparelStyleVariantProduct"
+			          autocreate="true" generate="true"
+			          jaloclass="com.etourtravelb2b.core.jalo.ApparelSizeVariantProduct">
+				<description>Apparel size variant type that contains additional attribute describing variant size.
+				</description>
+				<attributes>
+					<attribute qualifier="size" type="localized:java.lang.String"
+					           metatype="VariantAttributeDescriptor">
+						<description>Size of the product.</description>
+						<modifiers/>
+						<persistence type="property"/>
+					</attribute>
+				</attributes>
+			</itemtype>
+		</typegroup>
+		
+		<typegroup name="Electronics">
+			<itemtype code="ElectronicsColorVariantProduct" extends="VariantProduct"
+          autocreate="true" generate="true"
+          jaloclass="com.etourtravelb2b.core.jalo.ElectronicsColorVariantProduct">
+				 <description>Electronics color variant type that contains additional attribute describing variant color.
+				</description>
+				<attributes>
+					<attribute qualifier="color" type="localized:java.lang.String"
+					           metatype="VariantAttributeDescriptor">
+						<description>Color of the product.</description>
+						<modifiers/>
+						<persistence type="property"/>
+					</attribute>
+				</attributes>
+			</itemtype>
+		</typegroup>
+		<!-- My EtourtravelB2B Changes Strats here......... -->
+			<typegroup name="Etourtravelb2b">
+			
+ <itemtype code="ProductQuantityThresholdFreeGiftPromotion"
+            extends="ProductPromotion"
+            jaloclass="com.etourtravelb2b.jalo.ProductQuantityThresholdFreeGiftPromotion"
+            autocreate="true"
+            generate="true">
+ 
+            <attributes>
+ 
+                <attribute
+                    qualifier="giftProduct"
+                    autocreate="true"
+                    type="Product">
+                    <description>The partner product.</description>
+                    <modifiers read="true" write="true" search="true" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
+ 
+                <attribute
+                    qualifier="qualifyingCount"
+                    autocreate="true"
+                    type="java.lang.Integer">
+                    <defaultvalue>Integer.valueOf(3)</defaultvalue>
+                    <description>The number of base products required to qualify for the free gift.</description>
+                    <modifiers read="true" write="true" search="true" optional="true"/>
+                    <persistence type="property"/>
+                </attribute>
+ 
+                <attribute qualifier="messageFired" type="localized:java.lang.String">
+                    <description>The message to show when the promotion has fired.</description>
+                    <modifiers read="true" write="true" optional="true" />
+                    <persistence type="property">
+                        <columntype database="oracle">
+                            <value>varchar2(4000)</value>
+                        </columntype>
+                        <columntype database="mysql">
+                            <value>text</value>
+                        </columntype>
+                        <columntype database="sqlserver">
+                            <value>nvarchar(max)</value>
+                        </columntype>
+                        <columntype database="hsqldb">
+                            <value>LONGVARCHAR</value>
+                        </columntype>
+                        <columntype>
+                            <value>varchar</value>
+                        </columntype>
+                    </persistence>
+                </attribute>
+ 
+                <attribute qualifier="messageCouldHaveFired" type="localized:java.lang.String">
+                    <description>The message to show when the promotion could have potentially fire.</description>
+                    <modifiers read="true" write="true" optional="true" />
+                    <persistence type="property">
+                        <columntype database="oracle">
+                            <value>varchar2(4000)</value>
+                        </columntype>
+                        <columntype database="mysql">
+                            <value>text</value>
+                        </columntype>
+                        <columntype database="sqlserver">
+                            <value>nvarchar(max)</value>
+                        </columntype>
+                        <columntype database="hsqldb">
+                            <value>LONGVARCHAR</value>
+                        </columntype>
+                        <columntype>
+                            <value>varchar</value>
+                        </columntype>
+                    </persistence>
+                </attribute>
+ 
+            </attributes>
+        </itemtype>
+        
+        <itemtype code="Etourtravelb2bDaysVariantProduct" extends="VariantProduct"
+				autocreate="true" generate="true"
+				jaloclass="com.etourtravelb2b.core.jalo.Etourtravelb2bDaysVariantProduct">
+				<description>etourtravel style variant type that contains additional attribute describing variant style.
+				</description>
+				<attributes>
+					<attribute qualifier="days" type="localized:java.lang.String"
+						metatype="VariantAttributeDescriptor">
+						<description>No of Days the travel.</description>
+						<modifiers />
+						<persistence type="property" />
+					</attribute>
+					
+
+				</attributes>
+			</itemtype>
+			
+			
+			<itemtype code="Product" autocreate="false" generate="false">
+				<description>Extending the Product type from core with additional attributes.</description>
+
+				<attributes>
+					
+					<attribute qualifier="comingSoon" type="java.lang.Boolean">
+						<description>Coming Soon Products</description>
+						<modifiers />
+						<persistence type="property" />
+					</attribute>
+
+					<!-- PDP new 2 Attributes declaration here....start s -->
+					<attribute qualifier="productRating" type="java.lang.String">
+
+						<description>Customer Rating of  the travel.</description>
+						<modifiers />
+						<persistence type="property" />
+					</attribute>
+
+					<attribute qualifier="productCustomerSatisfaction" type="java.lang.String">
+
+						<description>Customer Satisfaction of  the travel.</description>
+						<modifiers />
+						<persistence type="property" />
+					</attribute>
+
+				</attributes>
+			</itemtype>
+			
+			
+			<itemtype code="Customer" extends="User" autocreate="false"
+				generate="false">
+				<attributes>
+					<!-- auto ID which is generated by NumberSeries -->
+					<attribute autocreate="true" qualifier="contactNumber"
+						type="java.lang.String">
+						<modifiers read="true" write="true" search="true"
+							optional="true" />
+						<persistence type="property" />
+					</attribute>
+
+					<attribute autocreate="true" qualifier="currentLocation"
+						type="java.lang.string">
+						<modifiers read="true" write="true" search="true"
+							optional="true" />
+						<persistence type="property" />
+					</attribute>
+				</attributes>
+			</itemtype>
+        
+			
+			</typegroup>
+		
+
+	</itemtypes>
+</items>

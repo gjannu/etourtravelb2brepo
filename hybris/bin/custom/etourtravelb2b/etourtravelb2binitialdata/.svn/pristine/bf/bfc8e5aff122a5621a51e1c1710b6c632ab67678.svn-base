@@ -1,0 +1,35 @@
+# ImpEx for Importing Email Content
+# English Localisation
+
+# Macros / Replacement Parameter definitions
+$contentCatalog=etourtravelb2bContentCatalog
+
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$picture=media(code, $contentCV);
+$wideContent=CMSImageComponent,BannerComponent
+$jarResource=jar:com.etourtravelb2b.initialdata.setup.InitialDataSystemSetup&/etourtravelb2binitialdata/import
+$siteResource=jar:com.etourtravelb2b.initialdata.setup.InitialDataSystemSetup&/etourtravelb2binitialdata/import/contentCatalogs/$contentCatalog
+
+# Language
+$lang=en
+
+# Language
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images']
+;;/images/theme/banner-sale-now-on.jpg;banner-sale-now-on.jpg;$siteResource/images/theme/banner-sale-now-on.jpg;
+;;/images/theme/banner-free-delivery.jpg;banner-free-delivery.jpg;$siteResource/images/theme/banner-free-delivery.jpg;
+
+# CMS Image Components
+#UPDATE CMSImageComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+# CMS Image Components
+UPDATE CMSImageComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+;;EmailBannerSaleNowOnImage;/images/theme/banner-sale-now-on.jpg
+;;EmailBannerFreeDeliveryImage;/images/theme/banner-free-delivery.jpg
+
+
+
+# Content Slots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;EmailTopSlot;EmailBannerSaleNowOnImage
+;;EmailBottomSlot;EmailBannerFreeDeliveryImage
+
