@@ -17,7 +17,7 @@
     <extension name='etourtravelb2bfacades' />
     <extension name='etourtravelb2bcore' />
     <extension name='etourtravelb2btest' />
-    <!--k-->
+    <!--my changes-->
     <extension name='yaddon' />
 	 <extension name='liveeditaddon' />
     <extension name='ycommercewebservices' />
